@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
+use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [PostController::class, 'index']);
+Route::get('/post/{slug}', [PostController::class, 'singlePost']);
+Route::get('/category/{category}' ,[PostController::class, 'getByCategory'])->name('category');
+
+
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
@@ -29,6 +38,22 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::view('charts', 'charts')->name('charts');
     Route::view('buttons', 'buttons')->name('buttons');
     Route::view('modals', 'modals')->name('modals');
-    Route::view('tables', 'tables')->name('tables');
+    // Route::view('tables', 'tables')->name('tables');
     Route::view('calendar', 'calendar')->name('calendar');
+
+
+
+    //posts
+    Route::get('/posts', [PostController::class, 'create'])->name('create');
+    Route::post('/posts', [PostController::class, 'store'])->name('store');
+    Route::get('/tables', [PostController::class, 'show'])->name('tables');
+    Route::get('/post/{id}/edit', [PostController::class, 'edit'])->name('edit');
+    Route::post('/post/{id}/update', [PostController::class, 'update'])->name('update');
+    Route::post('/post/{id}/delete', [PostController::class, 'destroy'])->name('delete');
+
+    // Category
+
+
+
+
 });
