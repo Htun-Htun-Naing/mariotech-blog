@@ -5,7 +5,6 @@ cd /home/bitnami/htdocs
 
 
 # Install dependencies
-export COMPOSER_ALLOW_SUPERUSER=1
 composer install -d /home/bitnami/htdocs
 npm install && npm run dev
 
