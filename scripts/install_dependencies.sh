@@ -1,5 +1,5 @@
 #!/bin/bash
 
 # Enter html directory
-sudo apt install -y nodejs npm
+sudo apt install -y npm
 
