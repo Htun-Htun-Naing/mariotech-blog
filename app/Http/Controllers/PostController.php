@@ -27,8 +27,9 @@ class PostController extends Controller
     }
     public function getByCategory(Category $category)
     {
+
         return view('welcome', [
-            'posts' => $category->posts,
+            'posts' => Post::with('category')->where('category_id', $category->id)->paginate(8),
             'categories' => Category::all()
         ]);
     }

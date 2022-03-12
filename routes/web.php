@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', [PostController::class, 'index']);
-Route::get('/post/{slug}', [PostController::class, 'singlePost']);
+Route::get('/', [PostController::class, 'index'])->name('index');
+Route::get('/post/{slug}', [PostController::class, 'singlePost'])->name('singlepost');
 Route::get('/category/{category}' ,[PostController::class, 'getByCategory'])->name('category');
 
 

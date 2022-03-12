@@ -9,12 +9,15 @@
     <title>{{ $title }}</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/tailwind.output.css') }}" />
+
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="{{asset('js/init-alpine.js')}}" defer></script>
 
@@ -35,6 +38,14 @@
 </head>
 
 <body>
+   @if( Route::current()->getName() == 'index' || Route::current()->getName() == 'category' || Route::current()->getName() == 'singlepost')
+
+   {{$slot}}
+   @stack('modals')
+
+   @livewireScripts
+
+   @else
     <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
         @include('layouts.menu')
         @include('layouts.mobile-menu')
@@ -47,10 +58,12 @@
         </div>
 
 
+
         @stack('modals')
 
         @livewireScripts
     </div>
+    @endif
 </body>
 
 </html>
