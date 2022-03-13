@@ -3,7 +3,8 @@
 # Enter html directory
 sudo yum install -y httpd
 sed -i 's#AllowOverride None#AllowOverride All#' /etc/httpd/conf/httpd.conf
-mkdir -p /var/www/html/public
+# mkdir -p /var/www/html/public
+whoami
 sed -i 's#DocumentRoot "/var/www/html"#DocumentRoot "/var/www/html/public"#' /etc/httpd/conf/httpd.conf
 sed -e 's/DirectoryIndex.*/DirectoryIndex index.html index.php/' -i /etc/httpd/conf/httpd.conf
 
