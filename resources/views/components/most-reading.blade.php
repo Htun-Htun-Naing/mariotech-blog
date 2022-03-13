@@ -1,5 +1,5 @@
 @props(['posts'])
-<div class="border-t border-gray-100 py-10 bg-red-100 dark:bg-gray-900">
+<div class="border-t border-gray-100 py-10  dark:bg-gray-900">
     <div class="grid grid-cols-12">
         <div class="col-start-2 col-span-10">
             <div class="flex items-center gap-2 mb-5">
