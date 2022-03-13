@@ -32,7 +32,9 @@ Route::get('/category/{category}' ,[PostController::class, 'getByCategory'])->na
 
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
-    Route::view('dashboard', 'dashboard')->name('dashboard');
+    // Route::view('dashboard', 'dashboard')->name('dashboard');
+    Route::get('/dashboard', [PostController::class, 'dashboard'])->name('dashboard');
+
     Route::view('forms', 'forms')->name('forms');
     Route::view('cards', 'cards')->name('cards');
     Route::view('charts', 'charts')->name('charts');

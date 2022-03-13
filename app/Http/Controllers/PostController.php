@@ -12,10 +12,16 @@ class PostController extends Controller
     //
     public function index()
     {
-
         return view('welcome' , [
             'posts' => Post::orderBy('id', 'DESC')->paginate(8),
             'categories' => Category::all()
+
+        ]);
+    }
+    public function dashboard()
+    {
+        return view('dashboard' , [
+            'posts' => Post::latest()->take(10)->get()
 
         ]);
     }
