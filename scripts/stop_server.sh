@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#!/bin/bash
+isExistApp = `pgrep httpd`
+if [[ -n  $isExistApp ]]; then
+    service httpd stop
+fi
 
-# startapache
-/opt/bitnami/ctlscript.sh stop apache
