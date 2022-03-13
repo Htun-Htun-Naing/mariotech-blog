@@ -1,7 +1,7 @@
 #!/bin/bash
 cd /var/www/html
 
-composer install -d /var/www/html
+/usr/local/bin/composer install -d /var/www/html
 npm run dev
 cp /var/www/html/.env.example /var/www/html/.env
 php81 /var/www/html/artisan key:generate

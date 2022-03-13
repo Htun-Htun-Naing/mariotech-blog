@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Enter html directory
-sudo yum install -y npm
 sudo yum install -y httpd
 sed -i 's#AllowOverride None#AllowOverride All#' /etc/httpd/conf/httpd.conf
 mkdir -p /var/www/html/public
