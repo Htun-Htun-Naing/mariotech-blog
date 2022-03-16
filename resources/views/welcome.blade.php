@@ -1,4 +1,4 @@
-<x-app-layout title="Index">
+<x-app-layout title="MarioTech">
     <header class="bg-indigo-50 dark:bg-gray-800">
         <x-fe-menu :categories="$categories">
         </x-fe-menu>
